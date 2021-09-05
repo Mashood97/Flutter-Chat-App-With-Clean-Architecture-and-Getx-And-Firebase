@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "3883003062",
+    "project_id": "flutter-firebase-push-no-35b72",
+    "storage_bucket": "flutter-firebase-push-no-35b72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3883003062:android:9fd07d56b69c300e7a0a17",
+        "android_client_info": {
+          "package_name": "com.example.flutter_push_notification_proj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3883003062-ivet01ji8f9dpui875sfhg6r507bec77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgDY3kvjTub6S7g-YzxvkJnXAibn53b7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3883003062-ivet01ji8f9dpui875sfhg6r507bec77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
