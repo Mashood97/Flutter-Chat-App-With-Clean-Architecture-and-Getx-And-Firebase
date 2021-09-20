@@ -1,4 +1,4 @@
-# flutter_push_notification_proj
+# Flutter Clean Architecture and getx Chat App With Firebase firestore, authorization and Cloud messaging.
 
 A new Flutter project.
 
