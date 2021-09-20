@@ -28,52 +28,66 @@ class ChatScreen extends StatelessWidget {
                     : ListView.builder(
                         reverse: true,
                         physics: BouncingScrollPhysics(),
-                        itemBuilder: (ctx, index) =>
-                            _chatController.messagesList[index].senderId ==
-                                    _chatController.currentUserId
-                                //My Message
-                                ? Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Container(
-                                      child: Card(
-                                        color: Colors.green.shade50,
-                                        elevation: 8,
-                                        margin: AppUtils.kPaddingAllSides,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.only(
-                                            topRight: Radius.circular(15.0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding: AppUtils.kPaddingAllSides,
-                                          child: Text(_chatController
-                                              .messagesList[index].messageText),
-                                        ),
+                        itemBuilder: (ctx, index) => _chatController
+                                    .messagesList[index].senderId ==
+                                _chatController.currentUserId
+                            //My Message
+                            ? Align(
+                                alignment: Alignment.centerRight,
+                                child: Container(
+                                  child: Card(
+                                    color: Colors.green.shade300,
+                                    elevation: 8,
+                                    margin: AppUtils.kPaddingAllSides,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(15.0),
                                       ),
                                     ),
-                                  )
-                                :
-                                //Sender Message
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Container(
-                                      child: Card(
-                                        color: Colors.white,
-                                        elevation: 8,
-                                        margin: AppUtils.kPaddingAllSides,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.only(
-                                            topRight: Radius.circular(15.0),
-                                          ),
-                                        ),
-                                        child: Padding(
-                                          padding: AppUtils.kPaddingAllSides,
-                                          child: Text(_chatController
-                                              .messagesList[index].messageText),
-                                        ),
+                                    child: Padding(
+                                      padding: AppUtils.kPaddingAllSides,
+                                      child: Text(
+                                        _chatController
+                                            .messagesList[index].messageText,
+                                        style: TextStyle(
+                                            fontSize:
+                                                AppFontSizes.smallFontSize,
+                                            fontWeight:
+                                                AppFontWeights.smallFontWeight),
                                       ),
                                     ),
                                   ),
+                                ),
+                              )
+                            :
+                            //Sender Message
+                            Align(
+                                alignment: Alignment.centerLeft,
+                                child: Container(
+                                  child: Card(
+                                    color: Colors.white,
+                                    elevation: 8,
+                                    margin: AppUtils.kPaddingAllSides,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(15.0),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: AppUtils.kPaddingAllSides,
+                                      child: Text(
+                                        _chatController
+                                            .messagesList[index].messageText,
+                                        style: TextStyle(
+                                            fontSize:
+                                                AppFontSizes.smallFontSize,
+                                            fontWeight:
+                                                AppFontWeights.smallFontWeight),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                         itemCount: _chatController.messagesList.length,
                       ),
               ),

@@ -21,7 +21,7 @@ class ChatList extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              _chatController.logoutUser();
+              // _chatController.logoutUser();
             },
             icon: Icon(Icons.exit_to_app),
           ),

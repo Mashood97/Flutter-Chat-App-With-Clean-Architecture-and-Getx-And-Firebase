@@ -78,6 +78,7 @@ class ChatController extends GetxController {
 
   getMessagesListFromDB() {
     _messagesList.bindStream(_getMessagesUseCase!.call());
+    // _messagesList.sort((a, b) => b.dateTime.compareTo(a.dateTime));
   }
 
   Future<void> addAMessageToDB({Message? messageVal}) async {
@@ -89,6 +90,8 @@ class ChatController extends GetxController {
         recieverId: messageVal.recieverId,
       );
       await _addMessageUseCase!.call(message: message);
+      // _messagesList.reversed;
+
       _messageText.clear();
     } catch (e) {
       ConstantMethod.showErrorSnackBar(e.toString());

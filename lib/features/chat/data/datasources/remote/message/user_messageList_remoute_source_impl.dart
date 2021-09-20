@@ -29,7 +29,8 @@ class UserMessageListRemoteSourceImplementation
 
   @override
   Stream<List<Message>> getAllMessages() {
-    final messages = firestore.collection("Messages");
+    final messages =
+        firestore.collection("Messages").orderBy("datetime", descending: true);
 
     return messages.snapshots().map((querySnap) {
       return querySnap.docs

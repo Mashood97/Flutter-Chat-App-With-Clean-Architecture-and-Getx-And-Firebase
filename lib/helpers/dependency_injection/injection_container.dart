@@ -58,27 +58,34 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> init() async {
   //CONTROLLERS
-  Get.lazyPut<AuthController>(() => AuthController(
-        loginUseCase: Get.find<LoginUseCase>(),
-        signUpUseCase: Get.find<SignUpUseCase>(),
-        tokenUseCase: Get.find<GetTokenUseCase>(),
-        addUserToFirebase: Get.find<AddUserToFirebaseDbUseCase>(),
-      ),fenix: true);
+  Get.lazyPut<AuthController>(
+    () => AuthController(
+      loginUseCase: Get.find<LoginUseCase>(),
+      signUpUseCase: Get.find<SignUpUseCase>(),
+      tokenUseCase: Get.find<GetTokenUseCase>(),
+      addUserToFirebase: Get.find<AddUserToFirebaseDbUseCase>(),
+    ),
+  );
   Get.lazyPut<ChatController>(() => ChatController(
         getUsersFromDB: Get.find<GetUserListFromFirebaseUseCase>(),
         addMessages: Get.find<AddMessageUseCase>(),
         getMessages: Get.find<GetMessagesUseCase>(),
       ));
-
+  Get.lazyPut(() => ChatController());
   //USE CASES
   Get.lazyPut<LoginUseCase>(
-      () => LoginUseCase(repository: Get.find<AuthenticationRepository>()));
+    () => LoginUseCase(repository: Get.find<AuthenticationRepository>()),
+  );
   Get.lazyPut<SignUpUseCase>(
-      () => SignUpUseCase(repository: Get.find<AuthenticationRepository>()));
+    () => SignUpUseCase(repository: Get.find<AuthenticationRepository>()),
+  );
   Get.lazyPut<GetTokenUseCase>(
-      () => GetTokenUseCase(repository: Get.find<AuthenticationRepository>()));
-  Get.lazyPut<AddUserToFirebaseDbUseCase>(() => AddUserToFirebaseDbUseCase(
-      repository: Get.find<AuthenticationRepository>()));
+    () => GetTokenUseCase(repository: Get.find<AuthenticationRepository>()),
+  );
+  Get.lazyPut<AddUserToFirebaseDbUseCase>(
+    () => AddUserToFirebaseDbUseCase(
+        repository: Get.find<AuthenticationRepository>()),
+  );
   //Chat usecase:
   Get.lazyPut<GetUserListFromFirebaseUseCase>(() =>
       GetUserListFromFirebaseUseCase(
@@ -91,9 +98,10 @@ Future<void> init() async {
       () => GetMessagesUseCase(repository: Get.find<UserListMessagesRepo>()));
 
   //REPOS
-  Get.lazyPut<AuthenticationRepository>(() =>
-      AuthenticationRepositoryImplementation(
-          authFirebaseRemoteSource: Get.find<AuthFirebaseRemoteSource>()));
+  Get.lazyPut<AuthenticationRepository>(
+    () => AuthenticationRepositoryImplementation(
+        authFirebaseRemoteSource: Get.find<AuthFirebaseRemoteSource>()),
+  );
 
   Get.lazyPut<UserListFirebaseRepository>(() =>
       UserListFireBaseRepoImplementation(
